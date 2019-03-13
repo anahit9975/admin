@@ -34,7 +34,7 @@
         <tr>
           <td>{{ $c->id }}</td>
           <td>{{ $c->category_name }}</td>
-          <td><a href="#" class="btn btn-info">EDIT</a> <a href="#" class="btn btn-danger">Delete</a></td>
+          <td><a href="{{ route('admin.categories.edit', $c->id) }}" class="btn btn-info">EDIT</a> <a href="#" class="btn btn-danger">Delete</a></td>
         </tr>
         @endforeach
         </table>
