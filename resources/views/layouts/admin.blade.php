@@ -86,7 +86,7 @@
               </p>
             </a>
 
-             <a href="{{ route('categories.index') }}" class="nav-link">
+             <a href="{{ route('admin.categories.index') }}" class="nav-link">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Categories

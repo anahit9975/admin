@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Category;
+
 class CategoriesController extends Controller
 {
-    public function __construct()
+
+     public function __construct()
             {
                 $this->middleware('auth');
             }
@@ -16,13 +19,10 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        {
+    {
+        
         $arr['categories']=Category::all();
         return view('admin.categories.index')->with($arr);
-    }
-
-        
     }
 
     /**
@@ -32,7 +32,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -41,9 +41,11 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
-        //
+        $category->category_name = $request->category_name;
+        $category->save();
+        return redirect("admin/categories");
     }
 
     /**
