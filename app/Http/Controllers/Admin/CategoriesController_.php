@@ -80,9 +80,18 @@ class CategoriesController extends Controller
      */
     public function update(Request $request,Category $category)
     {
-       $category->category_name = $request->category_name;
-        $category->save();
-        return redirect()->route("admin.categories.index");
+      
+        
+          /*  $category->status = "droped";
+            $category->save();
+            return redirect()->route("admin.categories.index");
+            */
+      
+        
+            $category->category_name = $request->category_name;
+            $category->save();
+            return redirect()->route("admin.categories.index");  
+        
     }
 
     /**
@@ -91,8 +100,14 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+            $category->status = "droped";
+            $category->save();
+            return redirect()->route("admin.categories.index"); 
     }
+   /* public function change_status(Category $category){
+       
+    }*/
 }
+

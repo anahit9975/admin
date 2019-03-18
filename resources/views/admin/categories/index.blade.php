@@ -31,11 +31,21 @@
           <th>ACTION</th>
         </tr>  
         @foreach($categories as $c)
+        @if($c->status=='active')
         <tr>
           <td>{{ $c->id }}</td>
           <td>{{ $c->category_name }}</td>
-          <td><a href="{{ route('admin.categories.edit', $c->id) }}" class="btn btn-info">EDIT</a> <a href="#" class="btn btn-danger">Delete</a></td>
+          <td><a href="{{ route('admin.categories.edit', $c->id) }}" class="btn btn-info">EDIT</a>
+            <a href="javascript:void(0)"
+            onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
+            <form action="{{ route('admin.categories.destroy',$c->status) }}"
+              method="post">
+                @method('DELETE')
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            </form>
+          </td>
         </tr>
+        @endif
         @endforeach
         </table>
       </div>  
