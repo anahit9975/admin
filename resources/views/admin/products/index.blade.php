@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Categories</h1>
+            <h1 class="m-0 text-dark">Products</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{url('/admin') }}">Dashboard</a></li>
-              <li class="breadcrumb-item active">Categories</li>
+              <li class="breadcrumb-item active">Products</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -22,7 +22,7 @@
         
       <div class="container-fluid">
         <p>
-          <a href="{{ route('admin.categories.create') }}" class="btn btn-primary"> Add new Category</a>
+          <a href="{{ route('admin.products.create') }}" class="btn btn-primary"> Add new Product</a>
         </p>
         <table class="table table-bordered table-striped">
         <tr>
@@ -30,16 +30,16 @@
           <th>CATEGORY_NAME</th>
           <th>ACTION</th>
         </tr>  
-        @foreach($categories as $c)
-       @if($c->status=='active')
+        @foreach($products as $p)
+        @if($p->status=='active')
         <tr>
-          <td>{{ $c->id }}</td>
-          <td>{{ $c->category_name }}</td>
-          <td><a href="{{ route('admin.categories.edit', $c->id) }}" class="btn btn-info">EDIT</a>
+          <td>{{ $p->id }}</td>
+          <td>{{ $p->name }}</td>
+          <td><a href="{{ route('admin.products.edit', $p->id) }}" class="btn btn-info">EDIT</a>
             <a href="javascript:void(0)"
-            onclick="document.getElementById('del').submit();" class="btn btn-danger">Delete</a>
+            onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
             
-            <form id="del" action="{{ route('admin.categories.destroy',$c->id) }}"
+            <form action="{{ route('admin.products.update',$p->id) }}"
               method="post">
                 @method('DELETE')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

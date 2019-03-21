@@ -4,15 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
 
-class CategoriesController extends Controller
+class ProductsController extends Controller
 {
-
-     public function __construct()
-            {
-                $this->middleware('auth');
-            }
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        
-        $arr['categories']=Category::all();
-        return view('admin.categories.index')->with($arr);
+        //
     }
 
     /**
@@ -32,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -41,14 +33,11 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Category $category)
+    public function store(Request $request)
     {
-        
-        $category->category_name = $request->category_name;
-        $category->save();
-        return redirect()->route("admin.categories.index");
-    
-}
+        //
+    }
+
     /**
      * Display the specified resource.
      *
@@ -66,10 +55,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        $arr['category'] = $category;
-        return view('admin.categories.edit')->with($arr);
+        //
     }
 
     /**
@@ -79,15 +67,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Category $category)
+    public function update(Request $request, $id)
     {
-           
-            $category->category_name = $request->category_name;
-            $category->save();
-            return redirect()->route("admin.categories.index");       
+        //
     }
-     
-
 
     /**
      * Remove the specified resource from storage.
@@ -95,11 +78,8 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,Category $category)
+    public function destroy($id)
     {
-            $category->status="droped";
-            $category->save();
-          return redirect()->route("admin.categories.index");  
+        //
     }
 }
-

@@ -76,51 +76,63 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <?php 
+               $segment=Request::segment(2);
+                ?>
           <li class="nav-item has-treeview menu-open">
-
-             <a href="" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
+              <!-- dashboard start -->
+             <a href="{{ route('home') }}" class="nav-link
+             @if(!$segment)
+             {
+              active
+             }
+             @endif
+             ">
               <p>
                 Dashboard
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-
-             <a href="{{ route('admin.categories.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
+            <!-- categories start  -->
+             <a href="{{ route('admin.categories.index') }}" class="nav-link 
+             @if($segment=='categories')
+             {
+              active
+             }
+             @endif">
               <p>
                 Categories
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-
-            <a href="" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
+            <!-- product start -->
+            <a href="" class="nav-link 
+            @if($segment=='products')
+             {
+              active
+             }
+             @endif
+            ">
               <p>
                 Products
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+            <!-- gallery start -->
+           
+                <a href="./index.html" class="nav-link ">
                   <p>Gallary</p>
                 </a>
-              </li>
-              <li class="nav-item">
+             
+              <!-- addPage start -->
+
                 <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
                   <p>Add Page</p>
                 </a>
-              </li>
-              <li class="nav-item">
+
+              <!-- orders start -->
+
                 <a href="./index3.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
                   <p>Orders</p>
-                </a>
-              </li>
-            </ul>
+                </a>          
           </li>
           
           
