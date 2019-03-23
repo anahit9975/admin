@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
+use App\Products;
 
 class ProductsController extends Controller
 {
+     public function __construct()
+            {
+                $this->middleware('auth');
+            }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+          $arr['products']=Products::all();
+        return view('admin.products.index')->with($arr);
     }
 
     /**
@@ -24,7 +31,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**

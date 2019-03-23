@@ -27,17 +27,16 @@
         <table class="table table-bordered table-striped">
         <tr>
           <th>ID</th>
-          <th>CATEGORY_NAME</th>
+          <th>NAME</th>
           <th>ACTION</th>
         </tr>  
         @foreach($products as $p)
-        @if($p->status=='active')
         <tr>
           <td>{{ $p->id }}</td>
           <td>{{ $p->name }}</td>
           <td><a href="{{ route('admin.products.edit', $p->id) }}" class="btn btn-info">EDIT</a>
             <a href="javascript:void(0)"
-            onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
+            onclick="document.getElementById('del').submit();" class="btn btn-danger">Delete</a>
             
             <form action="{{ route('admin.products.update',$p->id) }}"
               method="post">
@@ -46,7 +45,6 @@
             </form>
           </td>
         </tr>
-        @endif
         @endforeach
         </table>
       </div>  

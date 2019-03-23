@@ -18,3 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home');
 Route::resource('/admin/categories', 'Admin\CategoriesController', ['as'=>'admin']);
+Route::resource('/admin/products', 'Admin\ProductsController', ['as'=>'admin']);
