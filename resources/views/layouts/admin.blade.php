@@ -105,7 +105,7 @@
               </p>
             </a>
             <!-- product start -->
-            <a href="" class="nav-link 
+            <a href="{{ route('admin.products.index') }}" class="nav-link 
             @if($segment=='products')
              {
               active
