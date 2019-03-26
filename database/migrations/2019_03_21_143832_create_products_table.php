@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->bigInteger('price');
+            $table->enum('status',['active','droped'])->default('active');
             $table->timestamps();
         });
     }

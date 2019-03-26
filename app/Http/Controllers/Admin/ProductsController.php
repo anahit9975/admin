@@ -42,6 +42,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request,Products $products)
     {
+        if ($request->image->getClientOriginalName()) {
+            $ext = $request->image->getClientOriginalExtension();
+            $file = date("YmdHis").rand(1,99999).'.'.$ext;
+            $request->image->storeAs('public/productImage', $file);
+        }
+        else{
+            $file = '';
+        }
+        $products->image = $file;
          $products->name = $request->name;
          $products->description=$request->description;
          $products->price=$request->price;
@@ -57,7 +66,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -66,9 +75,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Products $products)
     {
-        //
+        $arr['products'] = $products;
+        return view('admin.products.edit')->with($arr);
     }
 
     /**
@@ -78,10 +88,31 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Products $products)
     {
-        //
-    }
+        if (isset($request->image ) && $request->image->getClientOriginalName()) {
+            $ext = $request->image->getClientOriginalExtension();
+            $file = date("YmdHis").rand(1,99999).'.'.$ext;
+            $request->image->storeAs('public/productImage', $file);
+        }
+        else{
+            if(!$products->image){
+
+                $file = '';
+            }
+            else{
+                $file = $products->image;
+            }
+
+        }
+             $products->image = $file;
+             $products->name = $request->name;
+             $products->description=$request->description;
+             $products->price=$request->price;
+             $products->save();
+             return redirect()->route("admin.products.index");
+        }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -94,3 +125,5 @@ class ProductsController extends Controller
         //
     }
 }
+
+

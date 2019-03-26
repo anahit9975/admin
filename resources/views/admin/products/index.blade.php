@@ -28,12 +28,14 @@
         <tr>
           <th>ID</th>
           <th>NAME</th>
+          <th>DESCRIPTION</th>
           <th>ACTION</th>
         </tr>  
         @foreach($products as $p)
         <tr>
           <td>{{ $p->id }}</td>
           <td>{{ $p->name }}</td>
+          <td>{{ $p->description }}</td>
           <td><a href="{{ route('admin.products.edit', $p->id) }}" class="btn btn-info">EDIT</a>
             <a href="javascript:void(0)"
             onclick="document.getElementById('del').submit();" class="btn btn-danger">Delete</a>
