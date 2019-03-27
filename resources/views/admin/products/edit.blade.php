@@ -21,22 +21,21 @@
       <section class="content">
           <!--edit products form-->
       <div class="container-fluid">
-      <form method="post" action="{{ route('admin.products.update' , $products->id )}}" enctype="multipart/form-data">
-       
+      <form method="post" action="{{ route('admin.products.update', $product ) }}" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
          @method('PUT')
         <div class="row">
           <div class="form-group">
             <label class="col-md-3">Product Name</label>
             <div class="col=md=6">
-              <input type="text" name="name" class="form-control" value="{{ $products->name }}"></div>
+              <input type="text" name="name" class="form-control" value="{{ $product->name }}"></div>
             <div class="clearfix"></div>
 
              <div class="form-group">
             <label class="col-md-3">Description</label>
             <div class="col=md=6"> 
               <textarea name="description" class="form-control" >
-                {{ $products->description }}
+                {{ $product->description }}
               </textarea> 
             </div>
             <div class="clearfix"></div>
@@ -44,17 +43,17 @@
              <div class="form-group">
             <label class="col-md-3">Price</label>
             <div class="col=md=6">
-              <input type="text" name="price" class="form-control" value="{{ $products->price }}"></div>
+              <input type="text" name="price" class="form-control" value="{{ $product->price }}"></div>
             <div class="clearfix"></div>
 
-            @if($products->image)
+            @if($product->image)
               <div class="form-group">
                 <label class="col-md-3">Image</label>
                 <div class="col=md=6"> 
                   <input type="file" name="image">
                 </div>
                 <div class="clearfix"></div>
-                <img src="{{ asset('storage/productImage/'.$products->image) }}" width="150px">
+                <img src="{{ asset('storage/productImage/'.$product->image) }}" width="150">
             </div>
            @endif
         </div>

@@ -20,7 +20,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-          $arr['products']=Products::all();
+          $arr['product']=Products::all();
         return view('admin.products.index')->with($arr);
     }
 
@@ -77,7 +77,7 @@ class ProductsController extends Controller
      */
     public function edit(Products $products)
     {
-        $arr['products'] = $products;
+        $arr['product'] = $products;
         return view('admin.products.edit')->with($arr);
     }
 
@@ -107,8 +107,8 @@ class ProductsController extends Controller
         }
              $products->image = $file;
              $products->name = $request->name;
-             $products->description=$request->description;
-             $products->price=$request->price;
+             $products->description = $request->description;
+             $products->price = $request->price;
              $products->save();
              return redirect()->route("admin.products.index");
         }
@@ -120,9 +120,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,Products $products)
     {
-        //
+        $products->status="droped";
+        $products->save();
+        return redirect()->route("admin.products.index");  
     }
 }
 

@@ -31,7 +31,7 @@
           <th>DESCRIPTION</th>
           <th>ACTION</th>
         </tr>  
-        @foreach($products as $p)
+        @foreach($product as $p)
         <tr>
           <td>{{ $p->id }}</td>
           <td>{{ $p->name }}</td>
@@ -40,7 +40,7 @@
             <a href="javascript:void(0)"
             onclick="document.getElementById('del').submit();" class="btn btn-danger">Delete</a>
             
-            <form action="{{ route('admin.products.update',$p->id) }}"
+            <form id="del" action="{{ route('admin.products.destroy', $p->id) }}"
               method="post">
                 @method('DELETE')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
