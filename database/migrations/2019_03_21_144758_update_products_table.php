@@ -25,6 +25,7 @@ class UpdateProductsTable extends Migration
      */
     public function down()
     {
+        
        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('image');
         });
