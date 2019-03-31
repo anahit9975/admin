@@ -18,4 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home');
 Route::resource('/admin/categories', 'Admin\CategoriesController', ['as'=>'admin']);
+<<<<<<< Updated upstream
 Route::resource('/admin/products', 'Admin\ProductsController', ['as'=>'admin']);
+=======
+Route::resource('/admin/products', 'Admin\ProductsController', ['as'=>'admin']);
+Route::get('/admin/photo', 'PhotoController@index');
+Route::post('/admin/photo', 'PhotoController@upload');
+>>>>>>> Stashed changes

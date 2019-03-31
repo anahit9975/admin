@@ -118,7 +118,12 @@
             </a>
             <!-- gallery start -->
            
-                <a href="./index.html" class="nav-link ">
+                <a href="{{ url('/admin/photo') }}" class="nav-link  @if($segment=='photo')
+             {
+              active
+             }
+             @endif
+             ">
                   <p>Gallary</p>
                 </a>
              
