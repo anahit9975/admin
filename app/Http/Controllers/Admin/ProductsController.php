@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
+//use App\Category;
 use App\Products;
 
 class ProductsController extends Controller
@@ -20,7 +20,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-          $arr['product']=Products::all();
+          $arr['products']=Products::all();
         return view('admin.products.index')->with($arr);
     }
 
@@ -77,7 +77,7 @@ class ProductsController extends Controller
      */
     public function edit(Products $products)
     {
-        $arr['product'] = $products;
+        $arr['products'] = Products::all();
         return view('admin.products.edit')->with($arr);
     }
 
@@ -90,17 +90,21 @@ class ProductsController extends Controller
      */
     public function update(Request $request, Products $products)
     {
-        if (isset($request->image ) && $request->image->getClientOriginalName()) {
+        if (isset($request->image ) && $request->image->getClientOriginalName()) 
+        {
             $ext = $request->image->getClientOriginalExtension();
             $file = date("YmdHis").rand(1,99999).'.'.$ext;
             $request->image->storeAs('public/productImage', $file);
         }
-        else{
-            if(!$products->image){
+        else
+        {
+            if(!$products->image)
+            {
 
                 $file = '';
             }
-            else{
+            else
+            {
                 $file = $products->image;
             }
 
@@ -122,6 +126,10 @@ class ProductsController extends Controller
      */
     public function destroy(Request $request,Products $products)
     {
+        $products->image = $file;
+        $products->name=$request->name;
+        $products->description = $request->description;
+        $products->price = $request->price;
         $products->status="droped";
         $products->save();
         return redirect()->route("admin.products.index");  

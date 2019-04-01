@@ -31,7 +31,8 @@
           <th>DESCRIPTION</th>
           <th>ACTION</th>
         </tr>  
-        @foreach($product as $p)
+        @foreach($products as $p)
+        @if($p->status=='active')
         <tr>
           <td>{{ $p->id }}</td>
           <td>{{ $p->name }}</td>
@@ -47,6 +48,7 @@
             </form>
           </td>
         </tr>
+        @endif
         @endforeach
         </table>
       </div>  

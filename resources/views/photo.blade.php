@@ -1,9 +1,35 @@
+<<<<<<< HEAD
 
 @extends('layouts.app')
 
 @section('content')
     <!-- Content Header (Page header) -->
     <form method="post" action="{{url('/photo')}}" enctype="multipart/form-data">
+=======
+@extends('layouts.admin')
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Gallary</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{url('/admin') }}">Dashboard</a></li>
+              <li class="breadcrumb-item active">Gallary</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+      <section class="content">
+         <!-- Content Header (Page header) -->
+    <form method="post" action="{{url('/admin/photo')}}" enctype="multipart/form-data">
+>>>>>>> anahit
         {{ csrf_field() }}
         <div class="form-group">
             <table class="table">
@@ -16,4 +42,11 @@
             </table>
         </div>
     </form>
+<<<<<<< HEAD
+=======
+      <div class="container-fluid">
+       
+      </div>  
+    </section>
+>>>>>>> anahit
 @endsection

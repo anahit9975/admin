@@ -17,8 +17,8 @@ class PhotoController extends Controller
         return view('/photo');
 
     }
-    public  function  upload(Request $request,Image $images){
 
+    public  function  upload(Request $request){
         $image = $request->file('select_file');
         $imgName = $request->file('select_file')->getClientOriginalName();
        	$imgSize =   $request->file('select_file')->getClientSize();
@@ -32,9 +32,6 @@ class PhotoController extends Controller
         $img->size = $imgSize ;
         $img->save();
         return redirect()->back();
-
-
-
 
 	}
 }
