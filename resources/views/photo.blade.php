@@ -15,6 +15,23 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Gallary</h1>
+            @if(count($errors)>0)
+                <div class="alert alert-danger">
+                  Upload Validation Error<br><br>
+                  <ul>
+                    @foreach($errors->all() as $error)
+                    <li> {{$error}}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            @endif
+            @if($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">x</button>
+              <strong>{{$message}}</strong>
+            </div>
+            
+            @endif
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,7 +46,7 @@
       <section class="content">
          <!-- Content Header (Page header) -->
     <form method="post" action="{{url('/admin/photo')}}" enctype="multipart/form-data">
->>>>>>> anahit
+
         {{ csrf_field() }}
         <div class="form-group">
             <table class="table">
@@ -42,11 +59,10 @@
             </table>
         </div>
     </form>
-<<<<<<< HEAD
-=======
+
       <div class="container-fluid">
        
       </div>  
     </section>
->>>>>>> anahit
+
 @endsection
