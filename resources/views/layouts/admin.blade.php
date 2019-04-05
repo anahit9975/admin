@@ -13,7 +13,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
   <!-- iCheck -->
-  <link rel="stylesheet" href=" {{ asset('plugins/iCheck/flat/blue.css"') }} >
+  <link rel="stylesheet" href=" {{ asset('plugins/iCheck/flat/blue.css') }} ">
   <!-- Morris chart -->
   <link rel="stylesheet" href="{{ asset('plugins/morris/morris.css') }}">
   <!-- jvectormap -->

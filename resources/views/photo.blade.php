@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
-@extends('layouts.app')
-
-@section('content')
-    <!-- Content Header (Page header) -->
+ <!-- Content Header (Page header) -->
     <form method="post" action="{{url('/photo')}}" enctype="multipart/form-data">
-=======
 @extends('layouts.admin')
 
 @section('content')
@@ -29,7 +23,6 @@
       <section class="content">
          <!-- Content Header (Page header) -->
     <form method="post" action="{{url('/admin/photo')}}" enctype="multipart/form-data">
->>>>>>> anahit
         {{ csrf_field() }}
         <div class="form-group">
             <table class="table">
@@ -42,11 +35,8 @@
             </table>
         </div>
     </form>
-<<<<<<< HEAD
-=======
       <div class="container-fluid">
        
       </div>  
     </section>
->>>>>>> anahit
 @endsection

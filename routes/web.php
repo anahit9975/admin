@@ -11,14 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
-Route::get('/admin', 'HomeController@index')->name('home');
-Route::resource('/admin/categories', 'Admin\CategoriesController', ['as'=>'admin']);
-Route::resource('/admin/products', 'Admin\ProductsController', ['as'=>'admin'])
-Route::get('/admin/photo', 'PhotoController@index');
-Route::post('/admin/photo', 'PhotoController@upload');
 

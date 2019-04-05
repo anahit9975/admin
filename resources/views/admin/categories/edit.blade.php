@@ -22,8 +22,9 @@
         
       <div class="container-fluid">
       <form method="post" action="{{ route('admin.categories.update' , $category->id )}}">
+         @method('PUT')
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        @method('PUT')
+       
         <div class="row">
           <div class="form-group">
             <label class="col-md-3">CategoryName</label>
