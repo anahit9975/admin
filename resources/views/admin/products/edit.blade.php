@@ -20,11 +20,19 @@
     <!-- /.content-header -->
       <section class="content">
           <!--edit products form-->
+          
+          
            @foreach($products as $pr)
       <div class="container-fluid">
-      <form method="post" action="{{ route('admin.products.update', $pr->id ) }}" enctype="multipart/form-data">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-         @method('PATCH')
+<!--       <form method="post" action="{{ route('admin.products.update', $pr->id ) }}" enctype="multipart/form-data"> -->
+        <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+                               {{ Form::open(array(
+                                    'url' => "/admin/products/update/$pr->id",
+                                    'method' => 'PUT')) }}
+{{ csrf_token() }}
+
+
+        <!--  @method('PATCH') -->
         <div class="row">
          
           <div class="form-group">

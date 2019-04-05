@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use App\Category;
+use App\Category;
 use App\Products;
 
 class ProductsController extends Controller
@@ -88,8 +88,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, $product_id)
     {
+
+        $products = Products::find($product_id);
+
         if (isset($request->image ) && $request->image->getClientOriginalName()) 
         {
             $ext = $request->image->getClientOriginalExtension();
@@ -98,15 +101,11 @@ class ProductsController extends Controller
         }
         else
         {
-            if(!$products->image)
-            {
-
+            if(!$products->image)           
                 $file = '';
-            }
-            else
-            {
+            else           
                 $file = $products->image;
-            }
+            
 
         }
              $products->image = $file;
@@ -126,10 +125,6 @@ class ProductsController extends Controller
      */
     public function destroy(Request $request,Products $products)
     {
-        $products->image = $file;
-        $products->name=$request->name;
-        $products->description = $request->description;
-        $products->price = $request->price;
         $products->status="droped";
         $products->save();
         return redirect()->route("admin.products.index");  

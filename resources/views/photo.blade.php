@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
-@extends('layouts.app')
-
-@section('content')
-    <!-- Content Header (Page header) -->
+ <!-- Content Header (Page header) -->
     <form method="post" action="{{url('/photo')}}" enctype="multipart/form-data">
-=======
 @extends('layouts.admin')
 
 @section('content')
@@ -59,10 +53,8 @@
             </table>
         </div>
     </form>
-
       <div class="container-fluid">
        
       </div>  
     </section>
-
 @endsection
