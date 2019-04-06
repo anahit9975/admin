@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('fronthome');
+    return view('frontend/fronthome');
 });
 Auth::routes();
+Route::get('/about','Frontend\AboutController@index');
+Route::get('/blog','Frontend\BlogController@index');
