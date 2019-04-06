@@ -37,11 +37,11 @@
 		      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{{ url('/about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
@@ -49,10 +49,11 @@
 	  </nav>
     <!-- END nav -->
 
-   <div class="content-wrapper">
+
 @yield('content')
-    <!-- /.content -->
-  </div>
+
+
+
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
@@ -121,12 +122,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
         </div>
       </div>
     </footer>
