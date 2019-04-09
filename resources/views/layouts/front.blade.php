@@ -38,11 +38,11 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="{{url('/manu')}}" class="nav-link">Menu</a></li>
+	          <li class="nav-item"><a href="{{url('/services')}}" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{ url('/about')}}" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 		  </div>
@@ -74,7 +74,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{ asset('images/image_1.jpg') }});"></a>
+                <a class="blog-img mr-4" style="background-image: url({{ asset('frontFolders/images/image_1.jpg') }});"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -85,7 +85,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{ asset('images/image_2.jpg') }});"></a>
+                <a class="blog-img mr-4" style="background-image: url({{ asset('frontFolders/images/image_2.jpg') }});"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
