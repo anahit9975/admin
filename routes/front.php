@@ -14,10 +14,11 @@
 Route::get('/', function () {
     return view('frontend/fronthome');
 });
-Auth::routes();
+Route::get('/','Frontend\HomeController@index');
+//Auth::routes();
 Route::get('/about','Frontend\AboutController@index');
 Route::get('/blog','Frontend\BlogController@index');
 Route::get('/blog-single','Frontend\Blog_singleController@index');
 Route::get('/contact','Frontend\ContactController@index');
-Route::get('/manu','Frontend\ManuController@index');
+Route::get('/menu','Frontend\ManuController@index');
 Route::get('/services','Frontend\ServicesController@index');

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\FrontendControllers;
+namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\FrontModels\Home;
 class HomeController extends Controller
 {
 /**
@@ -12,10 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -24,6 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend/fronthome');
+       $arr['products'] = Home::all();
+       return view('frontend.fronthome')->with($arr);
     }
 }
